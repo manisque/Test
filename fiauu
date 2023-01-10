@@ -1,0 +1,38 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "Dupe de Nico", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Dupe",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+local Section = Tab:AddSection({
+	Name = "--DUPE CRASH--"
+})
+
+
+Tab:AddButton({
+	Name = "Dupe!",
+	Callback = function()
+      		getgenv().dupe = true
+      while dupe == true do
+        local args = {
+    [1] = "Piano"
+}
+
+game:GetService("ReplicatedStorage").RemoteEvents.Equip:FireServer(unpack(args))
+        wait()
+      end
+  	end    
+})
+
+
+Tab:AddButton({
+	Name = "TP a safe place",
+	Callback = function()
+      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(256.916351, 18.5530472, -267.446747, 0.034900941, -6.93296869e-08, -0.999390781, 3.74332596e-12, 1, -6.9371815e-08, 0.999390781, 2.4174005e-09, 0.034900941)
+  	end    
+})
