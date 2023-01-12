@@ -1,0 +1,76 @@
+--MAINS
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("--PICK A SIDE OP SCRIPT--", "Ocean")
+local Tab = Window:NewTab("--PICK A SIDE--")
+local Section = Tab:NewSection("AutoFarm")
+
+Section:NewToggle("AutoFarm!", "Presiona para activar el autofarm!", function(state)
+    if state then
+        getgenv().autoCash = true
+
+
+        while autoCash == true do
+        local myPart = Instance.new("Part")
+        
+        
+        myPart.Anchored = true
+        myPart.Position = Vector3.new(-59.7809, 45.7791, -33.3074)
+        myPart.Size = Vector3.new(180,1,180)
+        
+        myPart.Parent = game.Workspace
+        wait(18)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(54.1658707, 4, 3.07040882, -2.00068316e-05, 1.2136284e-08, 1, 3.53054581e-08, 1, -1.21355779e-08, -1, 3.5305213e-08, -2.00068316e-05)
+        wait(29)
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3.50125957, 45.8108902, 3.64879203, 0.998629689, 5.5921543e-09, -0.0523326881, -5.28584865e-09, 1, 5.99144867e-09, 0.0523326881, -5.70661607e-09, 0.998629689)
+        wait(64)
+        end
+        
+    else
+        getgenv().autoCash = false
+
+
+while autoCash == true do
+local myPart = Instance.new("Part")
+
+
+myPart.Anchored = true
+myPart.Position = Vector3.new(-59.7809, 45.7791, -33.3074)
+myPart.Size = Vector3.new(180,1,180)
+
+myPart.Parent = game.Workspace
+wait(17)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(54.1658707, 4, 3.07040882, -2.00068316e-05, 1.2136284e-08, 1, 3.53054581e-08, 1, -1.21355779e-08, -1, 3.5305213e-08, -2.00068316e-05)
+wait(27)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-3.50125957, 45.8108902, 3.64879203, 0.998629689, 5.5921543e-09, -0.0523326881, -5.28584865e-09, 1, 5.99144867e-09, 0.0523326881, -5.70661607e-09, 0.998629689)
+wait(64)
+end
+
+    end
+end)
+
+--OTROS
+
+
+local otrosSection = Tab:NewSection("Script variados")
+
+otrosSection:NewSlider("Aumentar el WalkSpeed", "Aumenta tu WalkSpeed", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+end)
+
+otrosSection:NewSlider("Aumenta el JumpPower", "Aumenta tu JumpPower", 500, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+end)
+
+otrosSection:NewButton("Saltos infinitos", "Salta las veces que quieras", function()
+    local InfiniteJumpEnabled = true
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        if InfiniteJumpEnabled then
+            game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+        end
+    end)
+end)
+
+
+otrosSection:NewSlider("Cambiar la gravedad", "Cambia la gravedad del juego", 100, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    workspace.Gravity = s
+end)
